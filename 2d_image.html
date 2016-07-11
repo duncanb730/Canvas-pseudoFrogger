@@ -2,34 +2,34 @@
 <html>
 <head></head>
 	<body>
-		<canvas width="600" height="500"></canvas>
+		<canvas id="canvas" width="500" height="500"></canvas>
 
 		<script type="text/javascript">
 			var canvas = document.querySelector("canvas");
 			var ctx = canvas.getContext("2d");
 
-			var image = new Image();
+			var image = new image();
 			image.onload = function() {
 				ctx.drawImage(image, 0, 0);
 			};
 
-			image.src = "D3_006.jpg";
+			image.src = "D11_H4.jpg";
 
-			var makePixelGrayScale = function (r, g, b, a) {
+			var makePixelGreyScale = function (r, g, b, a) {
 				var y = (0.3 * r) + (0.59 * g) + (0.11 * b);
-				return {r: y, g:y, b: y, a:y};
+				return {r: y, g: y, b: y, a: y};
 			};
 
-			function makeGrayScale() {
+			function greyScale() {
 				var r, g, b, a;
-				var imageData = ctx.getImageData(0, 0, c.width, c.height);
+				var imageData = ctx.getImageData(0, 0, 400, 400);
 				var numPixels = imageData.data.length / 4;
-				for (var = 0, i < numPixels, i++) {
+				for (var i = 0; i < numPixels; i++) {
 					r = imageData.data[i * 4 + 0];
 					g = imageData.data[i * 4 + 1];
 					b = imageData.data[i * 4 + 2];
 					a = imageData.data[i * 4 + 3];
-					pixel = makePixelGrayScale(r, g, b, a);
+					pixel = makePixelGreyScale(r, g, b, a);
 					imageData.data[i * 4 + 0] = pixel.r;
 					imageData.data[i * 4 + 1] = pixel.g;
 					imageData.data[i * 4 + 2] = pixel.b;
